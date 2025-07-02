@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-from pathlib import Path
+from pathlib import Path,os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +29,8 @@ SECRET_KEY = '!$3uw(i2_q#%amk@h7!@@gel=bo7igk0--z2$kr6(a6igju357'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['your-app-name.onrender.com']
+ALLOWED_HOSTS = ['your-service-name.onrender.com', 'localhost']
+
 
 
 
@@ -125,5 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+import dj_database_url
+from decouple import config
+
+DATABASES['default'] = dj_database_url.config(
+    default=config('DATABASE_URL', default='sqlite:///db.sqlite3')
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
