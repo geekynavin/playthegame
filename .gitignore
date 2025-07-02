@@ -1,5 +1,22 @@
-venv
-.env
+# Bytecode and cache
+__pycache__/
+*.py[cod]
 
-# Environment variables
+# Environment
 .env
+*.sqlite3
+
+# Virtual environment (if inside project)
+venv/
+env/
+
+# Django static files
+/staticfiles/
+/media/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
