@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path,os
-
+import numbergame
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,8 +29,9 @@ SECRET_KEY = '!$3uw(i2_q#%amk@h7!@@gel=bo7igk0--z2$kr6(a6igju357'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['your-service-name.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['https://playthegame-9mgt.onrender.com', 'localhost']
 
+DJANGO_SETTINGS_MODULE=numbergame.settings
 
 
 
